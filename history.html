@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-i18n="history">Transaction History</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="bg-light">
+  <div class="container py-4">
+    <h3 data-i18n="history">Transaction History</h3>
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th data-i18n="type">Type</th>
+          <th data-i18n="desc">Description</th>
+          <th data-i18n="amount">Amount</th>
+          <th data-i18n="date">Date</th>
+          <th data-i18n="category">Category</th>
+        </tr>
+      </thead>
+      <tbody id="history-body"></tbody>
+    </table>
+    <a href="index.html" class="btn btn-secondary" data-i18n="back">Back</a>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

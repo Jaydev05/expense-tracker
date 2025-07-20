@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="dashboardTitle">Expense & Income Tracker</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="bg-light">
+  <div class="d-flex">
+    <!-- Sidebar -->
+    <aside class="sidebar p-3 bg-white">
+      <h5 data-i18n="quickActions">Quick Actions</h5>
+      <ul class="list-unstyled">
+        <li>
+          <a href="add-expense.html" class="btn btn-sm btn-danger w-100 mb-2" data-i18n="addExpense">
+            Add Expense
+          </a>
+        </li>
+        <li>
+          <a href="add-income.html" class="btn btn-sm btn-success w-100 mb-4" data-i18n="addIncome">
+            Add Income
+          </a>
+        </li>
+      </ul>
+      <h5 data-i18n="budgets">Budgets</h5>
+      <div id="budget-cards"><!-- JS can inject budget cards here --></div>
+      <div class="mt-4">
+        <label for="lang-switch" class="form-label small" data-i18n="language">Language</label>
+        <select id="lang-switch" class="form-select form-select-sm">
+          <option value="en">English</option>
+          <option value="mr">मराठी</option>
+        </select>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-grow-1 p-4">
+      <!-- Summary Cards -->
+      <div class="row g-3 mb-4">
+        <div class="col-md-4">
+          <div class="card summary-card shadow-sm">
+            <div class="card-body text-center">
+              <h6 class="card-title" data-i18n="totalIncome">Total Income</h6>
+              <p id="total-income" class="display-6">₹0</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card summary-card shadow-sm">
+            <div class="card-body text-center">
+              <h6 class="card-title" data-i18n="totalExpense">Total Expenses</h6>
+              <p id="total-expense" class="display-6">₹0</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card summary-card shadow-sm">
+            <div class="card-body text-center">
+              <h6 class="card-title" data-i18n="balance">Balance</h6>
+              <p id="balance" class="display-6">₹0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Two‑Column Grid -->
+      <div class="row gx-4">
+        <!-- Recent Transactions -->
+        <div class="col-lg-7 mb-4">
+          <div class="card h-100">
+            <div class="card-header" data-i18n="recent">Recent Transactions</div>
+            <div class="card-body p-0">
+              <table class="table table-sm mb-0">
+                <thead>
+                  <tr>
+                    <th data-i18n="type">Type</th>
+                    <th data-i18n="desc">Description</th>
+                    <th data-i18n="amount">Amount</th>
+                    <th data-i18n="date">Date</th>
+                  </tr>
+                </thead>
+                <tbody id="recent-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="col-lg-5">
+          <div class="card mb-4">
+            <div class="card-header" data-i18n="byCategory">Expense Breakdown</div>
+            <div class="card-body chart-wrapper-sm">
+              <canvas id="expenseChart"></canvas>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" data-i18n="monthlyOverview">Monthly Trends</div>
+            <div class="card-body chart-wrapper-sm">
+              <canvas id="monthlyChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
